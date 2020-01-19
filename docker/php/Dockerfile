@@ -18,7 +18,7 @@ RUN docker-php-ext-install pdo_mysql mbstring
 #     && rm composer.phar
 
 RUN curl -sS https://getcomposer.org/installer | php \
-    sudo mv composer.phar /usr/local/bin/composer \
+    mv composer.phar /usr/local/bin/composer \
     chmod +x /usr/local/bin/composer
 
 RUN groupadd -g 1000 www

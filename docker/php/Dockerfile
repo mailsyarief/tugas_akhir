@@ -24,9 +24,7 @@ RUN chmod +x /usr/local/bin/composer
 RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
 
-RUN chown -R www-data:www-data \
-    /var/www/storage \
-    /var/www/bootstrap/cache
+RUN chown -R www-data:www-data /var/www
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 

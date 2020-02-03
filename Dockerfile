@@ -1,6 +1,7 @@
 FROM php:7.2-fpm
 
 WORKDIR /var/www
+COPY /code /var/www
 
 RUN apt-get update && \
     apt-get install -y \
@@ -20,6 +21,11 @@ RUN useradd -u 1000 -ms /bin/bash -g www www
 RUN chown -R www-data:www-data /var/www
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN composer install
+COPY /build/.env /var/www
+RUN php artisan key:generate
+RUN chown -R www-data:www-data /var/www
 
 EXPOSE 9000
 CMD ["php-fpm"]

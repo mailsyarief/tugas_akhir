@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('create', 'SampleDatabaseController@create');
+Route::get('read', 'SampleDatabaseController@read');
+Route::post('update/{id}', 'SampleDatabaseController@update');
+Route::get('delete/{id}', 'SampleDatabaseController@delete');

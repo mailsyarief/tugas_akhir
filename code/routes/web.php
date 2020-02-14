@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
+
+// Route::get('/notfound', function () {
+//     return view('notfound');
+// });
+
+Route::get('/', 'LinkController@home');
+Route::get('/notfound', 'LinkController@notFound');
+
+Route::post('/generateLink', 'LinkController@generateLink');
+Route::get('/{link_pendek}', 'LinkController@accessLink');

@@ -1,26 +1,8 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
-  creationTimestamp: null
-  labels:
-    app: dev
   name: dev
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: dev
-  strategy: {}
-  template:
-    metadata:
-      creationTimestamp: null
-      labels:
-        app: dev
-    spec:
-      containers:
-      - image: nginx-local
-        name: nginx-local
-        ports:
-          - containerPort: 80
-        resources: {}
-status: {}
+  containers:
+  - name: nginx-local-container
+    image: nginx-local

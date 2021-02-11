@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dev
+spec:
+  containers:
+  - name: nginx-local-container
+    image: nginx-local
